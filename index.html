@@ -11,7 +11,7 @@
 
 <body>
   <div class="header">
-    <h2>Employee Direcotry</h2>
+    <h2>Employee Directory</h2>
     <div class="search-container">
       <i class="fa fa-search search-icon fa-sm"></i>
       <input type="text" class="padding" id="searchInput" placeholder="Search by name or email" />
@@ -23,19 +23,19 @@
 
   <div class="second-section">
     <label class="label-padding">Sort : </label>
-    <select id="sortSelect" onchange="applySort()">
+    <select id="sortSelect" class="padding" onchange="applySort()">
       <option value="">Sort By</option>
       <option value="firstName">First Name</option>
       <option value="department">Department</option>
     </select>
     <label class="label-padding" for="pageSize">Show : </label>
-    <select id="pageSize" onchange="changePageSize()">
+    <select id="pageSize" onchange="changePageSize()"  class="padding">
       <option>10</option>
       <option>25</option>
       <option>50</option>
       <option>100</option>
     </select>
-    <button onclick="openAddForm()" class="add-button">+ Add Employee</button>
+    <button onclick="openAddForm()" class="button">+ Add Employee</button>
   </div>
 
   <div id="employeeList" class="grid"></div>
@@ -44,21 +44,21 @@
     <div class="modal-content">
       <span onclick="closeFilter()" class="close">&times;</span>
       <h3>Filter Employees</h3>
-      <input type="text" id="filterFirstName" placeholder="First Name" class="margin" />
-      <input type="text" id="filterDepartment" placeholder="Department" class="margin" />
-      <input type="text" id="filterRole" placeholder="Role" class="margin" />
+      <input type="text" id="filterFirstName" placeholder="First Name" class="input-field" />
+      <input type="text" id="filterDepartment" placeholder="Department" class="input-field" />
+      <input type="text" id="filterRole" placeholder="Role" class="input-field" />
       <br />
-      <button onclick="applyFilter()"  class="margin">Apply</button>
-      <button onclick="clearFilter()"  class="margin">Clear</button>
+      <button onclick="applyFilter()"  class="margin button">Apply</button>
+      <button onclick="clearFilter()"  class="margin button">Clear</button>
     </div>
   </div>
 
   <div id="paginationControls" class="pagination-controls">
-    <button onclick="prevPage()">
+    <button onclick="prevPage()" class="button">
       <i class="fa fa-arrow-left"></i> Previous
     </button>
     <span id="pageInfo"></span>
-    <button onclick="nextPage()">
+    <button onclick="nextPage()" class="button">
       Next <i class="fa fa-arrow-right"></i>
     </button>
   </div>
@@ -77,11 +77,10 @@
         <input type="email" id="addEmail" placeholder="Email" required />
         <input type="text" id="addDepartment" placeholder="Department" required />
         <input type="text" id="addRole" placeholder="Role" required />
-        <button type="submit">Add</button>
+        <button type="submit" class="button">+ Add</button>
       </form>
     </div>
   </div>
-
 
   <div id="editModal" class="modal hidden">
     <div class="modal-content">
@@ -94,7 +93,7 @@
         <input type="email" id="editEmail" placeholder="Email" required />
         <input type="text" id="editDepartment" placeholder="Department" required />
         <input type="text" id="editRole" placeholder="Role" required />
-        <button type="submit">Update</button>
+        <button type="submit" class="button">Update</button>
       </form>
     </div>
   </div>

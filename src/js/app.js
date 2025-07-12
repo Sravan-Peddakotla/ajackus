@@ -70,10 +70,10 @@ function renderEmployees() {
     <p><strong>${emp.firstName} ${emp.lastName}</strong> (ID_${emp.id})</p>
     <p>${emp.email}</p>
     <p>${emp.department} | ${emp.role}</p>
-    <button onclick="editEmployee(${emp.id})">
+    <button onclick="editEmployee(${emp.id})" class="button">
       <i class="fa fa-pen fa-sm"></i> Edit
     </button>
-    <button onclick="deleteEmployee(${emp.id})">
+    <button onclick="deleteEmployee(${emp.id})" class="button">
       <i class="fa fa-trash fa-sm"></i> Delete
     </button>
   </div>
