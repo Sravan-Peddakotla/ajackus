@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="public/assets/styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="header">
+    <h2>Employee Direcotry</h2>
+    <div class="search-container">
+      <i class="fa fa-search search-icon fa-sm"></i>
+      <input type="text" class="padding" id="searchInput" placeholder="Search by name or email" />
+    </div>
+    <button onclick="openFilter()" class="padding">
+      <i class="fa fa-filter"></i> Filter
+    </button>
+  </div>
+
+  <div class="second-section">
+    <label class="label-padding">Sort : </label>
+    <select id="sortSelect" onchange="applySort()">
+      <option value="">Sort By</option>
+      <option value="firstName">First Name</option>
+      <option value="department">Department</option>
+    </select>
+    <label class="label-padding" for="pageSize">Show : </label>
+    <select id="pageSize" onchange="changePageSize()">
+      <option>10</option>
+      <option>25</option>
+      <option>50</option>
+      <option>100</option>
+    </select>
+    <button onclick="openAddForm()" class="add-button">+ Add Employee</button>
+  </div>
+
+  <div id="employeeList" class="grid"></div>
+
+  <div id="filterModal" class="modal hidden">
+    <div class="modal-content">
+      <span onclick="closeFilter()" class="close">&times;</span>
+      <h3>Filter Employees</h3>
+      <input type="text" id="filterFirstName" placeholder="First Name" class="margin" />
+      <input type="text" id="filterDepartment" placeholder="Department" class="margin" />
+      <input type="text" id="filterRole" placeholder="Role" class="margin" />
+      <br />
+      <button onclick="applyFilter()"  class="margin">Apply</button>
+      <button onclick="clearFilter()"  class="margin">Clear</button>
+    </div>
+  </div>
+
+  <div id="paginationControls" class="pagination-controls">
+    <button onclick="prevPage()">
+      <i class="fa fa-arrow-left"></i> Previous
+    </button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">
+      Next <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="footer">
+    <p><span>&#9400;</span> 2025 Employee Directory App, All Rights Reserved</p>
+  </div>
+
+  <div id="addModal" class="modal hidden">
+    <div class="modal-content">
+      <span onclick="closeAddForm()" class="close">&times;</span>
+      <h3>Add New Employee</h3>
+      <form onsubmit="submitAddForm(event)">
+        <input type="text" id="addFirstName" placeholder="First Name" required />
+        <input type="text" id="addLastName" placeholder="Last Name" required />
+        <input type="email" id="addEmail" placeholder="Email" required />
+        <input type="text" id="addDepartment" placeholder="Department" required />
+        <input type="text" id="addRole" placeholder="Role" required />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <span onclick="closeEditForm()" class="close">&times;</span>
+      <h3>Edit Employee</h3>
+      <form onsubmit="submitEditForm(event)">
+        <input type="hidden" id="editId" />
+        <input type="text" id="editFirstName" placeholder="First Name" required />
+        <input type="text" id="editLastName" placeholder="Last Name" required />
+        <input type="email" id="editEmail" placeholder="Email" required />
+        <input type="text" id="editDepartment" placeholder="Department" required />
+        <input type="text" id="editRole" placeholder="Role" required />
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="src/js/app.js"></script>
+</body>
+
+</html>
